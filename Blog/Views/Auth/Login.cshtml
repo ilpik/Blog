@@ -1,0 +1,27 @@
+﻿@model LoginViewModel
+      
+ <div class="container col-lg-6" align="center">
+		<div class="col-lg-4 col-md-8 mx-auto">
+			<form class="form-signin" id="contactForm" novalidate asp-controller="Auth" asp-action="login" method="post">
+				<div class="control-group">
+					<div class="form-group floating-label-form-group controls">
+						<Label asp-for="UserName">UserName</Label>
+						<input asp-for="UserName" type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Name">
+						<p class="help-block text-danger"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="form-group floating-label-form-group controls">
+						<Label asp-for="Password">Password</Label>
+						<input asp-for="Password" type="text" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Password">
+						<p class="help-block text-danger"></p>
+					</div>
+				</div>
+				<br>
+				<div id="success"></div>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				@*<input type="submit" value="Sign In" />*@
+			</form>
+		</div>
+</div>

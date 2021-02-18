@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Post>
+
+@{
+
+}
+
+<!-- Page Header
+-->
+@{
+	if (User.Identity.IsAuthenticated)
+	{
+		<h1>Вы авторизовались</h1>
+	}
+	else
+	{
+		<h2>Вам надо авторизоваться</h2>
+	}
+}
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="site-heading">
+					<h1>Народные посты</h1>
+					<span class="subheading">Постер</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container col-lg-6" align="center">
+	<div>
+		<ul class="list-group list-group-flush">
+			@{
+				foreach (var post in Model)
+				{
+					<li class="list-group-item">
+						<a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+							@post.Title
+						</a>
+						Кол-во просмотров: @post.PostViews
+					</li>
+
+				}
+			}
+		</ul>
+	</div>
+</div>

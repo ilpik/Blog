@@ -1,0 +1,19 @@
+﻿@model Post
+@{
+
+    Layout = $"/Views/Shared/_Layout.cshtml";
+}
+	<div class="container col-lg-6" align="center">
+			<h2>@Model.Title</h2>
+
+
+			@if (!string.IsNullOrEmpty(Model.Image))
+			{
+				var imagePath = $"/Image/{Model.Image}";
+				<hr>
+					<img src="@imagePath" width="500" alt="@Model.Title"/>
+			}
+			<div>
+				@Html.Raw(Model.Body)
+			</div>
+		</div>

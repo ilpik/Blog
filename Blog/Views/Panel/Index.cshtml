@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Post>
+
+@{
+
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+<div class="container col-lg-6" align="center">
+		<h2>Список Постов</h2>
+		<div>
+			<ul class="list-group">
+				@{
+					foreach (var post in Model)
+					{
+						<li class="list-group-item">
+							@post.Title
+							-
+							<a  class="badge badge-info" asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id" >
+								Edit
+							</a>
+							-
+							<a class="badge badge-danger" asp-controller="Panel" asp-action="Remove" asp-route-id="@post.Id">
+								Remove
+							</a>
+						</li>
+
+					}
+				}
+			</ul>
+		</div>
+	</div>

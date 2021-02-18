@@ -1,0 +1,48 @@
+﻿@model PostViewModel
+@{
+	Layout = $"/Views/Shared/_Layout.cshtml";
+}
+<div class="container col-lg-6" align="center">
+		<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+
+		<div>
+			<form asp-controller="Panel" asp-action="Edit" enctype="multipart/form-data" method="post">
+				<input asp-for="Id" type="hidden" />
+				<div class="input-group input-group-lg">
+					<input asp-for="Title" type="text" placeholder="Title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+				</div>
+
+				<hr />
+
+				<div>
+					<textarea id="editor" asp-for="Body" placeholder="Body"></textarea>
+				</div>
+
+				<hr />
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="inputGroupFileAddon01">Изображение</span>
+					</div>
+					<div class="custom-file">
+						<input asp-for="CurrentImage" type="hidden" />
+						<input asp-for="Image" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+						<label class="custom-file-label" for="inputGroupFile01">Добавить изображение</label>
+					</div>
+				</div>
+
+				@*<input type="submit" value="Submit" />*@
+				<button type="submit" class="btn btn-outline-primary">Submit</button>
+			</form>
+		</div>
+
+		@section scripts{
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+			<script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+
+			<script>
+				$('#editor').trumbowyg();
+			</script>
+		}
+	</div>

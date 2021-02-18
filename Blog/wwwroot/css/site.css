@@ -1,0 +1,23 @@
+﻿body {
+	margin:0;
+	background-color: darkslategray;
+}
+a {
+	color:white;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration:underline;	
+	}
+nav {
+	background-color:#142127;
+	height:50px;
+	width:100%;
+	text-align:center;
+}
+
+nav a {
+	display:inline-block;
+	height:100%;
+	padding:15px;
+	}
